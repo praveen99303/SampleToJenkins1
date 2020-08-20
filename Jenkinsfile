@@ -18,7 +18,7 @@ pipeline {
 		    echo 'RESTORE PKG COMPLETED'
 		    
 		    echo 'BUILD STARTING...'
-                    bat "\"${tool 'MSBuild'}\" SampleToJenkins1.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:SkipInvalidConfigurations=true /t:build /p:Configuration=Release /p:Platform=\"Any CPU\" /p:DeleteExistingFiles=True /p:publishUrl=C:\Projects\SolutionInIIS"
+                    bat "\"${tool 'MSBuild'}\" SampleToJenkins1.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:SkipInvalidConfigurations=true /t:build /p:Configuration=Release /p:Platform=\"Any CPU\" /p:DeleteExistingFiles=True /p:publishUrl=C:\\Projects\\SolutionInIIS"
                     echo 'BUILD COMPLETED'
             }
         }
