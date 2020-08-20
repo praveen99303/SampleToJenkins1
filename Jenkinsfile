@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Source'){
 	 steps{
-	   echo 'DOWNLOADING SOURCE START'
+	   echo 'DOWNLOADING SOURCE STARTING...'
 	   checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'MyPrivateGit-APG', url: 'https://github.com/praveen99303/SampleToJenkins1.git/']]])
 	   echo 'DOWNLOADING SOURCE COMPLETED'
 	 }
