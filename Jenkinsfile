@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
 		    echo 'RESTORE PKG STARTING...'
-		    bat 'nuget restore SampleToJenkins1.sln'
+		    bat 'C:\Windows\System32\config\systemprofile\nuget\nuget.exe restore SampleToJenkins1.sln'
 		    echo 'RESTORE PKG COMPLETED'
 		    
 		    echo 'BUILD STARTING...'
