@@ -5,14 +5,17 @@ pipeline {
 
     stages {
         stage('Source'){
-					steps{
-						checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'MyPrivateGit-APG', url: 'https://github.com/praveen99303/SampleToJenkins1.git/']]])
-					}
-		}
+	 steps{
+	   echo 'DOWNLOADING SOURCE START'
+	   checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'MyPrivateGit-APG', url: 'https://github.com/praveen99303/SampleToJenkins1.git/']]])
+	   echo 'DOWNLOADING SOURCE COMPLETED'
+	 }
+	}
         stage('Build') {
             steps {
+		echo 'BUILD STARTING...'
                 bat "\"${tool 'MSBuild'}\" SampleToJenkins1.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:SkipInvalidConfigurations=true /t:build /p:Configuration=Release /p:Platform=\"Any CPU\" /p:DeleteExistingFiles=True /p:publishUrl=c:\\inetpub\\wwwroot"
-                echo 'Building..'
+                echo 'BUILD COMPLETED'
             }
         }
         
